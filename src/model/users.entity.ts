@@ -5,9 +5,18 @@ export class Users {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
-    name: string;
+    @Column(null)
+    firstName: string;
+
+    @Column(null)
+    lastName: string;
+
+    @Column(null)
+    phone: string;
 
     @Column()
-    phone: string;
+    email: string;
+
+    @Column()
+    password: string;
 }
