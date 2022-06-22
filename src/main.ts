@@ -17,6 +17,17 @@ async function bootstrap() {
 		.setTitle('NestCommerce Api')
 		.setDescription('This is the api documentation of nestCommerce')
 		.setVersion('1.0.0')
+		.addBearerAuth(
+			{
+			  type: 'http',
+			  scheme: 'bearer',
+			  bearerFormat: 'Bearer',
+			  name: 'Authentication',
+			  description: 'Enter token',
+			  in: 'header',
+			},
+			'jwt', // This name here is important for matching up with @ApiBearerAuth() in your controller!
+		  )
 		.build();
 	const document = SwaggerModule.createDocument(app, options);
 	SwaggerModule.setup('api', app, document);

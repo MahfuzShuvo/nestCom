@@ -2,10 +2,14 @@ import { SqlServerConnectionOptions } from "typeorm/driver/sqlserver/SqlServerCo
 
 const config: SqlServerConnectionOptions = {
     type: 'mssql',
-    host: 'SPARROW',
-    username: 'genit',
-    password: 'genit2016',
-    database: 'nestCommerce',
+    host: 'localhost',
+    username: 'datavanced',
+    password: '123',
+    database: 'PropertiesDB',
+    // host: 'SPARROW',
+    // username: 'genit',
+    // password: 'genit2016',
+    // database: 'nestCommerce',
     entities: ['dist/src/**/*.entity.js'],
     synchronize: false,
     migrations: ['dist/src/db/migrations/*.js'],

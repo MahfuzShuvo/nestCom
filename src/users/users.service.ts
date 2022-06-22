@@ -10,16 +10,18 @@ export class UsersService {
         @InjectRepository(Users) private usersRepository: Repository<Users>
     ) {}
 
-    async getUsers() {
-        const query = 'Select * from users';
-        const allUsers = await this.usersRepository.query(query);
+    async getLoggedinUser(req) {
+        // const query = 'Select firstName, lastName, phone, email from users';
+        // const allUsers = await this.usersRepository.query(query);
 
-        if (allUsers) {
-            return {
-                status: true,
-                responseCode: 200,
-                responseObj: allUsers
-            }
-        }
+        // if (allUsers) {
+        //     return {
+        //         status: true,
+        //         responseCode: 200,
+        //         responseObj: allUsers
+        //     }
+        // }
+
+        return req.user;
     }
 }

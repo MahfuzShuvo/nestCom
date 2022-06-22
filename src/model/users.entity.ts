@@ -3,15 +3,15 @@ import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 @Entity()
 export class Users {
     @PrimaryGeneratedColumn()
-    id: number;
+    userId: number;
 
-    @Column(null)
+    @Column()
     firstName: string;
 
-    @Column(null)
+    @Column()
     lastName: string;
 
-    @Column(null)
+    @Column()
     phone: string;
 
     @Column()

@@ -1,7 +1,7 @@
 import { Body, Controller, Post } from "@nestjs/common";
-import { ApiBody, ApiTags } from "@nestjs/swagger";
+import { ApiBody, ApiResponse, ApiTags } from "@nestjs/swagger";
 import { AuthService } from "./auth.service";
-import { AuthDto } from './dto';
+import { LoginDto, SignupDto } from './dto';
 
 @ApiTags('Auth')
 @Controller('auth')
@@ -10,15 +10,18 @@ export class AuthController {
         private authService: AuthService
     ) {}
 
-    @ApiBody({type: AuthDto})
+    @ApiBody({type: SignupDto})
+    @ApiResponse({ status: 200, description: 'signup in the system' })
     @Post('signup')
-    signup(@Body() authDto: AuthDto) {
+    signup(@Body() dto: SignupDto) {
         
-        return this.authService.signup(authDto);
+        return this.authService.signup(dto);
     }
-
+    @ApiBody({type: LoginDto})
+    @ApiResponse({ status: 200, description: 'login in the system' })
     @Post('login')
-    login() {
-        return this.authService.login();
+    login(@Body() dto: LoginDto) {
+        // req.user;
+        return this.authService.login(dto);
     }
 }
